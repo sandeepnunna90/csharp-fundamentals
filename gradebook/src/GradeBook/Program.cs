@@ -13,15 +13,19 @@ namespace GradeBook
 
             // Total Grade
             var result = 0.0;
+            var highGrade = double.MinValue;
+            var lowGrade = double.MaxValue;
             foreach(var number in grades)
             {
+                highGrade = Math.Max(number, highGrade);
+                lowGrade = Math.Min(number, lowGrade);
                 result += number;
             }
-            Console.WriteLine($"Total Grade: {result:N2}");
 
-            // Average Grade
-            var average = result / grades.Count;
-            Console.WriteLine($"Averge Grade: {average:N3}");
+            result /= grades.Count;
+            Console.WriteLine($"Averge Grade: {result:N2}");
+            Console.WriteLine($"Lowest Grade: {lowGrade:N2}");
+            Console.WriteLine($"Higesht Grade: {highGrade:N2}");
         }
     }
 }
