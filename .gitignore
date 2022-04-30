@@ -1,2 +1,2 @@
-gradebook/src/bin
-gradebook/src/obj
+gradebook/src/GradeBook/bin/*
+gradebook/src/GradeBook/obj/*
