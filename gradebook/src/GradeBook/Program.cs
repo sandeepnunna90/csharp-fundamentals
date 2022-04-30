@@ -22,16 +22,6 @@ namespace GradeBook
             // Average Grade
             var average = result / grades.Count;
             Console.WriteLine($"Averge Grade: {average:N3}");
-
-            // Hello Syntax
-            if(args.Length > 0) 
-            {
-                Console.WriteLine($"Hello {args[1]}!");
-            } 
-            else
-            {
-                Console.WriteLine("Hello");
-            }
         }
     }
 }
