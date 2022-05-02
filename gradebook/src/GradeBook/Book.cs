@@ -17,21 +17,23 @@ namespace GradeBook
             grades.Add(grade);
         }
 
-        public void ShowStats()
+        // returns an object type stats
+        public Stats GetStats() 
         {
-            var result = 0.0;
-            var highGrade = double.MinValue;
-            var lowGrade = double.MaxValue;
-            foreach(var number in grades)
+            var result = new Stats();
+            result.Average = 0.0;
+            result.Low = double.MaxValue;
+            result.High = double.MinValue;
+
+            foreach(var grade in grades)
             {
-                highGrade = Math.Max(number, highGrade);
-                lowGrade = Math.Min(number, lowGrade);
-                result += number;
+                result.High = Math.Max(grade, result.High);
+                result.Low = Math.Min(grade, result.Low);
+                result.Average += grade;
             }
-            result /= grades.Count;
-            Console.WriteLine($"Averge Grade: {result:N2}");
-            Console.WriteLine($"Lowest Grade: {lowGrade:N2}");
-            Console.WriteLine($"Higesht Grade: {highGrade:N2}");
+            result.Average /= grades.Count;
+
+            return result;
         }
 
         private List<double> grades;
